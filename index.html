@@ -1,48 +1,57 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Joyce Posadas Cellphone Store</title>
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Simple Shopping Cart</title>
 </head>
 <body>
-    <div class="container">
-        <div class="row">
-            <div class="col-12 text-center"> 
-                <h2>Joyce Posadas Cellphone Store</h2>
-                <hr class="hr" />
-            </div>
-        </div>
-        <div class="row">
-            <div class="col-4 text-center">
-                <label for="phoneSelect">Select Phone:</label>
-                <select id="phoneSelect" class="form-control">
-                    <option value="s21" data-price="27000" data-img="images/s21.jpg" data-specs="6.2-inch display, 8GB RAM, 128GB Storage">Samsung S21</option>
-                    <option value="s22" data-price="37000" data-img="images/s22.jpg" data-specs="6.5-inch display, 12GB RAM, 256GB Storage">Samsung S22</option>
-                    <option value="s23" data-price="47000" data-img="images/s23.jpg" data-specs="6.8-inch display, 16GB RAM, 512GB Storage">Samsung S23</option>
-                    <option value="iphone12" data-price="45000" data-img="images/iphone12.jpg" data-specs="6.1-inch display, 4GB RAM, 64GB Storage">iPhone 12</option>
-                    <option value="iphone13" data-price="55000" data-img="images/iphone13.jpg" data-specs="6.1-inch display, 4GB RAM, 128GB Storage">iPhone 13</option>
-			<option value="iphone14" data-price="65000" data-img="images/iphone14.jpg" data-specs="6.1-inch display, 8GB RAM, 256GB Storage">iPhone 14</option>
-                </select>
-                <img id="phoneImage" src="images/s21.jpg" style="width:400px; height:500px;" class="img-thumbnail" alt="Phone Image"/>
-                <div id="phoneSpecs">Specifications of S21</div>
-                <label id="phonePrice">Price: Php 27000.00</label>
-                <input type="number" class="form-control" id="quantity" placeholder="Enter quantity"/>
-                <button id="addToCart" class="btn btn-primary mt-2">Add to Cart</button>
-            </div>
-            <div class="col-4">
-                <label for="carts"> Orders </label>
-                <textarea class="form-control" rows="20" id="carts" cols="200" readonly style="width:350px; height: 400px; font-size: 12px;"></textarea>
-                <input type="text" class="form-control border-0" id="total" readonly placeholder="Total"/>
-                <input type="number" class="form-control" id="cash" placeholder="Cash Tendered"/>
-                <input type="text" class="form-control border-0" id="change" readonly placeholder="Change"/>
-                <button id="submitOrder" class="btn btn-primary mt-2">Submit Order</button>
-            </div>
-		<label > Joyce D. Posadas - BSIT 3C </label>
-        </div>
-    </div>
-	
-    <script src="app.js"></script>
+  <h1>Shopping Cart</h1>
+  <div>
+    <img src="path/to/image1.jpg" alt="Product 1" id="image1">
+    <p id="product1">Product 1</p>
+    <p id="price1">15.00</p>
+    <input type="number" id="qty1" min="0" step="1">
+  </div>
+  <div>
+    <img src="path/to/image2.jpg" alt="Product 2" id="image2">
+    <p id="product2">Product 2</p>
+    <p id="price2">25.00</p>
+    <input type="number" id="qty2" min="0" step="1">
+  </div>
+  <div>
+    <img src="path/to/image3.jpg" alt="Product 3" id="image3">
+    <p id="product3">Product 3</p>
+    <p id="price3">35.00</p>
+    <input type="number" id="qty3" min="0" step="1">
+  </div>
+  <div>
+    <img src="path/to/image4.jpg" alt="Product 4" id="image4">
+    <p id="product4">Product 4</p>
+    <p id="price4">45.00</p>
+    <input type="number" id="qty4" min="0" step="1">
+  </div>
+  <div>
+    <img src="path/to/image5.jpg" alt="Product 5" id="image5">
+    <p id="product5">Product 5</p>
+    <p id="price5">55.00</p>
+    <input type="number" id="qty5" min="0" step="1">
+  </div>
+  <div>
+    <img src="path/to/image6.jpg" alt="Product 6" id="image6">
+    <p id="product6">Product 6</p>
+    <p id="price6">65.00</p>
+    <input type="number" id="qty6" min="0" step="1">
+  </div>
+  <h2>Cart</h2>
+  <pre id="carts"></pre>
+  <h2>Total: <input type="text" id="total" readonly></h2>
+  <div>
+    <label for="cash">Cash: </label>
+    <input type="number" id="cash" min="0" step="0.01">
+  </div>
+  <h2>Change: <input type="text" id="change" readonly></h2>
+
+  <script src="app.js"></script>
 </body>
 </html>
