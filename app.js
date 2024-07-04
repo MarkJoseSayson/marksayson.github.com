@@ -1,58 +1,82 @@
-document.addEventListener("DOMContentLoaded", function() {
-    var phoneSelect = document.getElementById("phoneSelect");
-    var phoneImage = document.getElementById("phoneImage");
-    var phoneSpecs = document.getElementById("phoneSpecs");
-    var phonePrice = document.getElementById("phonePrice");
-    var quantity = document.getElementById("quantity");
-    var addToCart = document.getElementById("addToCart");
-    var carts = document.getElementById("carts");
-    var total = document.getElementById("total");
-    var cash = document.getElementById("cash");
-    var change = document.getElementById("change");
-    var submitOrder = document.getElementById("submitOrder");
+var product1 = document.getElementById("product1");
+var qty1 = document.getElementById("qty1");
+var price1 = document.getElementById("price1");
 
-    function updatePhoneDetails() {
-        var selectedOption = phoneSelect.options[phoneSelect.selectedIndex];
-        phoneImage.src = selectedOption.getAttribute("data-img");
-        phoneSpecs.textContent = selectedOption.getAttribute("data-specs");
-        phonePrice.textContent = "Price: Php " + selectedOption.getAttribute("data-price");
-    }
+var product2 = document.getElementById("product2");
+var qty2 = document.getElementById("qty2");
+var price2 = document.getElementById("price2");
 
-    function addOrder() {
-        var selectedOption = phoneSelect.options[phoneSelect.selectedIndex];
-        var price = parseFloat(selectedOption.getAttribute("data-price"));
-        var qty = parseInt(quantity.value);
-        
-        if (qty > 0) {
-            var order = qty + ' pc/s x ' + price + ' ------ ' + selectedOption.textContent + ' ----- Php ' + (qty * price) + '\n';
-            carts.textContent += order;
-        }
+var product3 = document.getElementById("product3");
+var qty3 = document.getElementById("qty3");
+var price3 = document.getElementById("price3");
 
-        calculateTotal();
-    }
+var product4 = document.getElementById("product4");
+var qty4 = document.getElementById("qty4");
+var price4 = document.getElementById("price4");
 
-    function calculateTotal() {
-        var lines = carts.value.split('\n');
-        var totalAmount = 0;
+var product5 = document.getElementById("product5");
+var qty5 = document.getElementById("qty5");
+var price5 = document.getElementById("price5");
 
-        lines.forEach(function(line) {
-            var match = line.match(/Php (\d+)/);
-            if (match) {
-                totalAmount += parseFloat(match[1]);
-            }
-        });
+var product6 = document.getElementById("product6");
+var qty6 = document.getElementById("qty6");
+var price6 = document.getElementById("price6");
 
-        total.value = "Total: Php " + totalAmount;
-    }
+var carts = document.getElementById("carts");
+var total = document.getElementById("total");
+var cash = document.getElementById("cash");
+var change = document.getElementById("change");
 
-    function calculateChange() {
-        var totalAmount = parseFloat(total.value.replace("Total: Php ", ""));
-        var cashTendered = parseFloat(cash.value);
-        change.value = "Change: Php " + (cashTendered - totalAmount);
-    }
+function addOrder() {
+  carts.textContent = "";
+  var totalCost = 0;
+  
+  if (parseFloat(qty1.value) > 0) {
+    var order = qty1.value.toString() + ' pc/s x ' + price1.textContent + ' ------ ' + product1.textContent + ' ------ Php ' + (parseFloat(qty1.value) * parseFloat(price1.textContent)) + '\n';
+    carts.textContent += order;
+    totalCost += parseFloat(qty1.value) * parseFloat(price1.textContent);
+  }
+  if (parseFloat(qty2.value) > 0) {
+    var order = qty2.value.toString() + ' pc/s x ' + price2.textContent + ' ------ ' + product2.textContent + ' ------ Php ' + (parseFloat(qty2.value) * parseFloat(price2.textContent)) + '\n';
+    carts.textContent += order;
+    totalCost += parseFloat(qty2.value) * parseFloat(price2.textContent);
+  }
+  if (parseFloat(qty3.value) > 0) {
+    var order = qty3.value.toString() + ' pc/s x ' + price3.textContent + ' ------ ' + product3.textContent + ' ------ Php ' + (parseFloat(qty3.value) * parseFloat(price3.textContent)) + '\n';
+    carts.textContent += order;
+    totalCost += parseFloat(qty3.value) * parseFloat(price3.textContent);
+  }
+  if (parseFloat(qty4.value) > 0) {
+    var order = qty4.value.toString() + ' pc/s x ' + price4.textContent + ' ------ ' + product4.textContent + ' ------ Php ' + (parseFloat(qty4.value) * parseFloat(price4.textContent)) + '\n';
+    carts.textContent += order;
+    totalCost += parseFloat(qty4.value) * parseFloat(price4.textContent);
+  }
+  if (parseFloat(qty5.value) > 0) {
+    var order = qty5.value.toString() + ' pc/s x ' + price5.textContent + ' ------ ' + product5.textContent + ' ------ Php ' + (parseFloat(qty5.value) * parseFloat(price5.textContent)) + '\n';
+    carts.textContent += order;
+    totalCost += parseFloat(qty5.value) * parseFloat(price5.textContent);
+  }
+  if (parseFloat(qty6.value) > 0) {
+    var order = qty6.value.toString() + ' pc/s x ' + price6.textContent + ' ------ ' + product6.textContent + ' ------ Php ' + (parseFloat(qty6.value) * parseFloat(price6.textContent)) + '\n';
+    carts.textContent += order;
+    totalCost += parseFloat(qty6.value) * parseFloat(price6.textContent);
+  }
+  
+  total.value = 'Php ' + totalCost.toFixed(2);
+}
 
-    phoneSelect.addEventListener("change", updatePhoneDetails);
-    addToCart.addEventListener("click", addOrder);
-    submitOrder.addEventListener("click", calculateChange);
-    cash.addEventListener("keyup", calculateChange);
-});
+function calculateChange() {
+  var totalCost = parseFloat(total.value.replace('Php ', ''));
+  var cashTendered = parseFloat(cash.value);
+  var changeAmount = cashTendered - totalCost;
+  change.value = 'Php ' + changeAmount.toFixed(2);
+}
+
+qty1.addEventListener("keyup", addOrder);
+qty2.addEventListener("keyup", addOrder);
+qty3.addEventListener("keyup", addOrder);
+qty4.addEventListener("keyup", addOrder);
+qty5.addEventListener("keyup", addOrder);
+qty6.addEventListener("keyup", addOrder);
+
+cash.addEventListener("keyup", calculateChange);
