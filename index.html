@@ -1,57 +1,99 @@
 <!DOCTYPE html>
-<html lang="en">
+<html>
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Mark Jose Shoes Shop</title>
+    <title>Mark Jose Sayson</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
+    <style>
+        body {
+            background-color: black;
+        }
+        .container {
+            margin-top: 20px;
+        }
+        .img-thumbnail {
+            transition: transform 0.2s;
+            width: 100%;
+            height: 350px;
+        }
+        .img-thumbnail:hover {
+            transform: scale(1.05);
+        }
+        .btn-custom {
+            margin-top: 10px;
+        }
+        .order-summary {
+            height: 300px;
+        }
+        label{
+            color: white;
+            font-weight: bold;
+        }
+        h1{
+            color: #b3ff00;
+        }
+    </style>
 </head>
 <body>
-  <h1>Mark's original shoes shop</h1>
-  <div>
-    <img src="pic1.jfif" alt="product 1" id="image1" style="width:300px; height:400px;">
-    <p id="product1">NIKE</p>
-    <p id="price1">2000.00</p>
-    <input type="number" id="qty1" min="0" step="1">
-  </div>
-  <div>
-    <img src="pic2.jpg" alt="product 2" id="image2" style="width:300px; height:400px;">
-    <p id="product2">JORDAN</p>
-    <p id="price2">3000.00</p>
-    <input type="number" id="qty2" min="0" step="1">
-  </div>
-  <div>
-    <img src="pic3.jfif" alt="Product 3" id="image3" style="width:300px; height:300px;">
-    <p id="product3">NEW BALANCE</p>
-    <p id="price3">5000.00</p>
-    <input type="number" id="qty3" min="0" step="1">
-  </div>
-  <div>
-    <img src="pic4.jfif" alt="Product 4" id="image4" style="width:300px; height:400px;">
-    <p id="product4">CONVERSE</p>
-    <p id="price4">6000.00</p>
-    <input type="number" id="qty4" min="0" step="1">
-  </div>
-  <div>
-    <img src="pic5.jfif" alt="Product 5" id="image5" style="width:300px; height:400px;">
-    <p id="product5">REEBOK</p>
-    <p id="price5">5500.00</p>
-    <input type="number" id="qty5" min="0" step="1">
-  </div>
-  <div>
-    <img src="pic6.jfif" alt="Product 6" id="image6" style="width:300px; height:400px;">
-    <p id="product6">ADIDAS</p>
-    <p id="price6">8000.00</p>
-    <input type="number" id="qty6" min="0" step="1">
-  </div>
-  <h2>Cart</h2>
-  <pre id="carts"></pre>
-  <h2>Total: <input type="text" id="total" readonly></h2>
-  <div>
-    <label for="cash">Cash: </label>
-    <input type="number" id="cash" min="0" step="0.01">
-  </div>
-  <h2>Change: <input type="text" id="change" readonly></h2>
+    <div class="container">
+        <div class="row">
+            <div class="col-12 text-center">
+                <h1>Mark Shoes Store</h1>
+                <h2>original and high quality shoes</h2>
+                <hr class="hr"/>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-4 text-center">
+                <label id="product1">Nike</label>
+                <img src="pic1.jfif" class="img-thumbnail"/><br>
+                <label for="product1" id="price1">2700.00</label>
+                <input type="number" class="form-control" id="qty1" placeholder="Enter Quantity"/><br>
+            </div>
+            <div class="col-4 text-center">
+                <label id="product2">Jordan</label>
+                <img src="pic2.jfif" class="img-thumbnail"/><br>
+                <label for="product2" id="price2">3000.00</label>
+                <input type="number" class="form-control" id="qty2" placeholder="Enter Quantity"/><br>
+            </div>
 
-  <script src="app.js"></script>
+            <div class="col-4 text-center">
+                <label id="product3">New Balance</label>
+                <img src="pic3.jfif" class="img-thumbnail"/><br>
+                <label for="product3" id="price3"5000.00</label>
+                <input type="number" class="form-control" id="qty3" placeholder="Enter Quantity"/><br>
+            </div>
+
+            <div class="col-4 text-center">
+                <label id="product4">Converse</label>
+                <img src="pic4.jfif" class="img-thumbnail"/><br>
+                <label for="product4" id="price4">6000.00</label>
+                <input type="number" class="form-control" id="qty4" placeholder="Enter Quantity"/><br>
+            </div>
+
+            <div class="col-4 text-center">
+                <label id="product5">Rebook</label>
+                <img src="pic5.jfif" class="img-thumbnail"/><br>
+                <label for="product5" id="price5">5500.00</label>
+                <input type="number" class="form-control" id="qty5" placeholder="Enter Quantity"/><br>
+            </div>
+
+            <div class="col-4 text-center">
+                <label id="product6">Addidas</label>
+                <img src="pic6.jfif" class="img-thumbnail"/><br>
+                <label for="product6" id="price6">8000.00</label>
+                <input type="number" class="form-control" id="qty6" placeholder="Enter Quantity"/><br>
+            </div>
+
+            <div class="col-4">
+                <label for="carts">Orders</label><br>
+                <textarea class="form-control order-summary" rows="25" id="carts" readonly style="font-size: 12px;"></textarea>
+                <input type="text" class="form-control border-0" id="total" readonly placeholder="Total"/>
+                <input type="number" class="form-control" id="cash" placeholder="Cash Tendered"/>
+                <input type="text" class="form-control border-0" id="change" readonly placeholder="Change"/>
+                <button class="btn btn-primary btn-custom" onclick="finishOrder()">Finish Order</button>
+            </div>
+        </div>
+    </div>
+    <script src="app.js"></script>
 </body>
 </html>
