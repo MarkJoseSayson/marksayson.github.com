@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <title>Mark Jose Sayson</title>
+    <title>Mark Shoes Store</title>
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
     <style>
         .container {
@@ -28,7 +28,7 @@
         <div class="row">
             <div class="col-12 text-center">
                 <h1>Mark Shoes Store</h1>
-                <h2>original and high quality shoes</h2>
+                <h2>Original and High Quality Shoes</h2>
                 <hr class="hr"/>
             </div>
         </div>
@@ -45,38 +45,33 @@
                 <label for="product2" id="price2">3000.00</label>
                 <input type="number" class="form-control" id="qty2" placeholder="Enter Quantity"/><br>
             </div>
-
             <div class="col-4 text-center">
                 <label id="product3">New Balance</label>
                 <img src="pic3.jfif" class="img-thumbnail"/><br>
-                <label for="product3" id="price3"5000.00</label>
+                <label for="product3" id="price3">5000.00</label>
                 <input type="number" class="form-control" id="qty3" placeholder="Enter Quantity"/><br>
             </div>
-
             <div class="col-4 text-center">
                 <label id="product4">Converse</label>
                 <img src="pic4.jfif" class="img-thumbnail"/><br>
                 <label for="product4" id="price4">6000.00</label>
                 <input type="number" class="form-control" id="qty4" placeholder="Enter Quantity"/><br>
             </div>
-
             <div class="col-4 text-center">
                 <label id="product5">Rebook</label>
                 <img src="pic5.jfif" class="img-thumbnail"/><br>
                 <label for="product5" id="price5">5500.00</label>
                 <input type="number" class="form-control" id="qty5" placeholder="Enter Quantity"/><br>
             </div>
-
             <div class="col-4 text-center">
-                <label id="product6">Addidas</label>
+                <label id="product6">Adidas</label>
                 <img src="pic6.jfif" class="img-thumbnail"/><br>
                 <label for="product6" id="price6">8000.00</label>
                 <input type="number" class="form-control" id="qty6" placeholder="Enter Quantity"/><br>
             </div>
-
             <div class="col-4">
                 <label for="carts">Orders</label><br>
-                <textarea class="form-control order-summary" rows="25" id="carts" readonly style="font-size: 12px;"></textarea>
+                <textarea class="form-control order-summary" rows="5" id="carts" readonly></textarea>
                 <input type="text" class="form-control border-0" id="total" readonly placeholder="Total"/>
                 <input type="number" class="form-control" id="cash" placeholder="Cash Tendered"/>
                 <input type="text" class="form-control border-0" id="change" readonly placeholder="Change"/>
@@ -84,6 +79,119 @@
             </div>
         </div>
     </div>
-    <script src="app.js"></script>
+    <script>
+        var qty1 = document.getElementById("qty1");
+        var price1 = document.getElementById("price1");
+
+        var qty2 = document.getElementById("qty2");
+        var price2 = document.getElementById("price2");
+
+        var qty3 = document.getElementById("qty3");
+        var price3 = document.getElementById("price3");
+
+        var qty4 = document.getElementById("qty4");
+        var price4 = document.getElementById("price4");
+
+        var qty5 = document.getElementById("qty5");
+        var price5 = document.getElementById("price5");
+
+        var qty6 = document.getElementById("qty6");
+        var price6 = document.getElementById("price6");
+
+        var carts = document.getElementById("carts");
+        var total = document.getElementById("total");
+        var cash = document.getElementById("cash");
+        var change = document.getElementById("change");
+
+        function addOrder() {
+            var orders = "";
+            var totalAmount = 0;
+
+            if (parseFloat(qty1.value) > 0) {
+                var order1 = qty1.value + " pc/s x " + price1.textContent + " - " + product1.textContent + " - Php " + (parseFloat(qty1.value) * parseFloat(price1.textContent)).toFixed(2) + "\n";
+                orders += order1;
+                totalAmount += parseFloat(qty1.value) * parseFloat(price1.textContent);
+            }
+
+            if (parseFloat(qty2.value) > 0) {
+                var order2 = qty2.value + " pc/s x " + price2.textContent + " - " + product2.textContent + " - Php " + (parseFloat(qty2.value) * parseFloat(price2.textContent)).toFixed(2) + "\n";
+                orders += order2;
+                totalAmount += parseFloat(qty2.value) * parseFloat(price2.textContent);
+            }
+
+            if (parseFloat(qty3.value) > 0) {
+                var order3 = qty3.value + " pc/s x " + price3.textContent + " - " + product3.textContent + " - Php " + (parseFloat(qty3.value) * parseFloat(price3.textContent)).toFixed(2) + "\n";
+                orders += order3;
+                totalAmount += parseFloat(qty3.value) * parseFloat(price3.textContent);
+            }
+
+            if (parseFloat(qty4.value) > 0) {
+                var order4 = qty4.value + " pc/s x " + price4.textContent + " - " + product4.textContent + " - Php " + (parseFloat(qty4.value) * parseFloat(price4.textContent)).toFixed(2) + "\n";
+                orders += order4;
+                totalAmount += parseFloat(qty4.value) * parseFloat(price4.textContent);
+            }
+
+            if (parseFloat(qty5.value) > 0) {
+                var order5 = qty5.value + " pc/s x " + price5.textContent + " - " + product5.textContent + " - Php " + (parseFloat(qty5.value) * parseFloat(price5.textContent)).toFixed(2) + "\n";
+                orders += order5;
+                totalAmount += parseFloat(qty5.value) * parseFloat(price5.textContent);
+            }
+
+            if (parseFloat(qty6.value) > 0) {
+                var order6 = qty6.value + " pc/s x " + price6.textContent + " - " + product6.textContent + " - Php " + (parseFloat(qty6.value) * parseFloat(price6.textContent)).toFixed(2) + "\n";
+                orders += order6;
+                totalAmount += parseFloat(qty6.value) * parseFloat(price6.textContent);
+            }
+
+            carts.textContent = orders;
+            total.value = "Php " + totalAmount.toFixed(2);
+            calculateChange(); // Update change whenever order is added
+        }
+
+        function calculateChange() {
+            var totalAmount = parseFloat(total.value.replace("Php ", ""));
+            var cashAmount = parseFloat(cash.value);
+            if (cashAmount >= totalAmount) {
+                change.value = "Php " + (cashAmount - totalAmount).toFixed(2);
+            } else {
+                change.value = "Insufficient Cash";
+            }
+        }
+
+        function resetFields() {
+            qty1.value = "";
+            qty2.value = "";
+            qty3.value = "";
+            qty4.value = "";
+            qty5.value = "";
+            qty6.value = "";
+        }
+
+        function finishOrder() {
+            var totalAmount = parseFloat(total.value.replace("Php ", ""));
+            var cashAmount = parseFloat(cash.value);
+
+            if (cashAmount >= totalAmount && totalAmount > 0) {
+                alert("Order Successful!\n\n" + "Products Purchased:\n" + carts.textContent + "\nHave a nice day! Thank you for purchasing in my store!");
+                carts.textContent = "";
+                total.value = "";
+                cash.value = "";
+                change.value = "";
+                resetFields();
+            } else if (totalAmount == 0) {
+                alert("Please add items to your order.");
+            } else {
+                alert("Insufficient Cash.");
+            }
+        }
+
+        qty1.addEventListener("keyup", addOrder);
+        qty2.addEventListener("keyup", addOrder);
+        qty3.addEventListener("keyup", addOrder);
+        qty4.addEventListener("keyup", addOrder);
+        qty5.addEventListener("keyup", addOrder);
+        qty6.addEventListener("keyup", addOrder);
+        cash.addEventListener("keyup", calculateChange);
+    </script>
 </body>
 </html>
